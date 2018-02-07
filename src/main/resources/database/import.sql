@@ -76,6 +76,33 @@ CREATE TABLE `sys_user_role` (
   PRIMARY KEY (`ur_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+/*Data for the table `sys_permission` */
+
+insert  into `sys_permission`(`permission_id`,`available`,`name`,`parent_id`,`parent_ids`,`permission`,`resource_type`,`url`) values (1,'\0','用户管理',0,'0/','userInfo:view',1,'userInfo/userList');
+insert  into `sys_permission`(`permission_id`,`available`,`name`,`parent_id`,`parent_ids`,`permission`,`resource_type`,`url`) values (2,'\0','用户添加',1,'0/1','userInfo:add',2,'userInfo/userAdd');
+insert  into `sys_permission`(`permission_id`,`available`,`name`,`parent_id`,`parent_ids`,`permission`,`resource_type`,`url`) values (3,'\0','用户删除',1,'0/1','userInfo:del',2,'userInfo/userDel');
+
+/*Data for the table `sys_role` */
+
+insert  into `sys_role`(`role_id`,`available`,`description`,`role`) values (1,'\0','管理员js','admin');
+insert  into `sys_role`(`role_id`,`available`,`description`,`role`) values (2,'\0','VIP会员js','vip');
+insert  into `sys_role`(`role_id`,`available`,`description`,`role`) values (3,'','testjs','test');
+
+/*Data for the table `sys_role_permission` */
+
+insert  into `sys_role_permission`(`rp_id`,`permission_id`,`role_id`) values (1,1,1);
+insert  into `sys_role_permission`(`rp_id`,`permission_id`,`role_id`) values (2,2,1);
+insert  into `sys_role_permission`(`rp_id`,`permission_id`,`role_id`) values (3,3,2);
+
+
+/*Data for the table `sys_user_role` */
+
+insert  into `sys_user_role`(`ur_id`,`role_id`,`uid`) values (1,1,1);
+insert  into `sys_user_role`(`ur_id`,`role_id`,`uid`) values (2,2,1);
+insert  into `sys_user_role`(`ur_id`,`role_id`,`uid`) values (3,3,1);
+
+/*Data for the table `user_info` */
+
+insert  into `user_info`(`uid`,`name`,`password`,`salt`,`state`,`username`) values (1,'管理员','d3c59d25033dbf980d29554025c23a75','8d78869f470951332959580424d4bf4f',0,'admin');
+insert  into `user_info`(`uid`,`name`,`password`,`salt`,`state`,`username`) values (2,'张三','d3c59d25033dbf980d29554025c23a75','8d78869f470951332959580424d4bf4f',0,'zhangsan');
