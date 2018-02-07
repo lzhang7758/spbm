@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.spbm.dao.InfoEmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.zl.spbm.entity.InfoEmployee">
+    <id column="emp_id" jdbcType="BIGINT" property="empId" />
+    <result column="cre_time" jdbcType="TIMESTAMP" property="creTime" />
+    <result column="cre_usr" jdbcType="BIGINT" property="creUsr" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="upd_time" jdbcType="TIMESTAMP" property="updTime" />
+    <result column="upd_usr" jdbcType="BIGINT" property="updUsr" />
+    <result column="alg_edition" jdbcType="VARCHAR" property="algEdition" />
+    <result column="authority" jdbcType="VARCHAR" property="authority" />
+    <result column="calid" jdbcType="VARCHAR" property="calid" />
+    <result column="card_num" jdbcType="VARCHAR" property="cardNum" />
+    <result column="check_type" jdbcType="VARCHAR" property="checkType" />
+    <result column="com_a8id" jdbcType="BIGINT" property="comA8id" />
+    <result column="com_id" jdbcType="BIGINT" property="comId" />
+    <result column="dep_a8id" jdbcType="BIGINT" property="depA8id" />
+    <result column="emp_a8id" jdbcType="BIGINT" property="empA8id" />
+    <result column="emp_account" jdbcType="VARCHAR" property="empAccount" />
+    <result column="emp_name" jdbcType="VARCHAR" property="empName" />
+    <result column="emp_no" jdbcType="VARCHAR" property="empNo" />
+    <result column="lv_a8id" jdbcType="BIGINT" property="lvA8id" />
+    <result column="opendoor_type" jdbcType="VARCHAR" property="opendoorType" />
+    <result column="post_a8id" jdbcType="BIGINT" property="postA8id" />
+    <result column="sn" jdbcType="VARCHAR" property="sn" />
+    <result column="syn_time" jdbcType="TIMESTAMP" property="synTime" />
+    <result column="time_step" jdbcType="BIGINT" property="timeStep" />
+    <result column="dep_id" jdbcType="BIGINT" property="depId" />
+    <result column="lv_id" jdbcType="BIGINT" property="lvId" />
+    <result column="post_id" jdbcType="BIGINT" property="postId" />
+    <result column="emp_email" jdbcType="VARCHAR" property="empEmail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    emp_id, cre_time, cre_usr, status, upd_time, upd_usr, alg_edition, authority, calid, 
+    card_num, check_type, com_a8id, com_id, dep_a8id, emp_a8id, emp_account, emp_name, 
+    emp_no, lv_a8id, opendoor_type, post_a8id, sn, syn_time, time_step, dep_id, lv_id, 
+    post_id, emp_email
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from info_employee
+    where emp_id = #{empId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from info_employee
+    where emp_id = #{empId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zl.spbm.entity.InfoEmployee">
+    insert into info_employee (emp_id, cre_time, cre_usr, 
+      status, upd_time, upd_usr, 
+      alg_edition, authority, calid, 
+      card_num, check_type, com_a8id, 
+      com_id, dep_a8id, emp_a8id, 
+      emp_account, emp_name, emp_no, 
+      lv_a8id, opendoor_type, post_a8id, 
+      sn, syn_time, time_step, 
+      dep_id, lv_id, post_id, emp_email
+      )
+    values (#{empId,jdbcType=BIGINT}, #{creTime,jdbcType=TIMESTAMP}, #{creUsr,jdbcType=BIGINT}, 
+      #{status,jdbcType=INTEGER}, #{updTime,jdbcType=TIMESTAMP}, #{updUsr,jdbcType=BIGINT}, 
+      #{algEdition,jdbcType=VARCHAR}, #{authority,jdbcType=VARCHAR}, #{calid,jdbcType=VARCHAR}, 
+      #{cardNum,jdbcType=VARCHAR}, #{checkType,jdbcType=VARCHAR}, #{comA8id,jdbcType=BIGINT}, 
+      #{comId,jdbcType=BIGINT}, #{depA8id,jdbcType=BIGINT}, #{empA8id,jdbcType=BIGINT}, 
+      #{empAccount,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empNo,jdbcType=VARCHAR}, 
+      #{lvA8id,jdbcType=BIGINT}, #{opendoorType,jdbcType=VARCHAR}, #{postA8id,jdbcType=BIGINT}, 
+      #{sn,jdbcType=VARCHAR}, #{synTime,jdbcType=TIMESTAMP}, #{timeStep,jdbcType=BIGINT}, 
+      #{depId,jdbcType=BIGINT}, #{lvId,jdbcType=BIGINT}, #{postId,jdbcType=BIGINT}, #{empEmail,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.spbm.entity.InfoEmployee">
+    insert into info_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="algEdition != null">
+        alg_edition,
+      </if>
+      <if test="authority != null">
+        authority,
+      </if>
+      <if test="calid != null">
+        calid,
+      </if>
+      <if test="cardNum != null">
+        card_num,
+      </if>
+      <if test="checkType != null">
+        check_type,
+      </if>
+      <if test="comA8id != null">
+        com_a8id,
+      </if>
+      <if test="comId != null">
+        com_id,
+      </if>
+      <if test="depA8id != null">
+        dep_a8id,
+      </if>
+      <if test="empA8id != null">
+        emp_a8id,
+      </if>
+      <if test="empAccount != null">
+        emp_account,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empNo != null">
+        emp_no,
+      </if>
+      <if test="lvA8id != null">
+        lv_a8id,
+      </if>
+      <if test="opendoorType != null">
+        opendoor_type,
+      </if>
+      <if test="postA8id != null">
+        post_a8id,
+      </if>
+      <if test="sn != null">
+        sn,
+      </if>
+      <if test="synTime != null">
+        syn_time,
+      </if>
+      <if test="timeStep != null">
+        time_step,
+      </if>
+      <if test="depId != null">
+        dep_id,
+      </if>
+      <if test="lvId != null">
+        lv_id,
+      </if>
+      <if test="postId != null">
+        post_id,
+      </if>
+      <if test="empEmail != null">
+        emp_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empId != null">
+        #{empId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null">
+        #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="algEdition != null">
+        #{algEdition,jdbcType=VARCHAR},
+      </if>
+      <if test="authority != null">
+        #{authority,jdbcType=VARCHAR},
+      </if>
+      <if test="calid != null">
+        #{calid,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null">
+        #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="checkType != null">
+        #{checkType,jdbcType=VARCHAR},
+      </if>
+      <if test="comA8id != null">
+        #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="depA8id != null">
+        #{depA8id,jdbcType=BIGINT},
+      </if>
+      <if test="empA8id != null">
+        #{empA8id,jdbcType=BIGINT},
+      </if>
+      <if test="empAccount != null">
+        #{empAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        #{empNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lvA8id != null">
+        #{lvA8id,jdbcType=BIGINT},
+      </if>
+      <if test="opendoorType != null">
+        #{opendoorType,jdbcType=VARCHAR},
+      </if>
+      <if test="postA8id != null">
+        #{postA8id,jdbcType=BIGINT},
+      </if>
+      <if test="sn != null">
+        #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        #{synTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeStep != null">
+        #{timeStep,jdbcType=BIGINT},
+      </if>
+      <if test="depId != null">
+        #{depId,jdbcType=BIGINT},
+      </if>
+      <if test="lvId != null">
+        #{lvId,jdbcType=BIGINT},
+      </if>
+      <if test="postId != null">
+        #{postId,jdbcType=BIGINT},
+      </if>
+      <if test="empEmail != null">
+        #{empEmail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.spbm.entity.InfoEmployee">
+    update info_employee
+    <set>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="algEdition != null">
+        alg_edition = #{algEdition,jdbcType=VARCHAR},
+      </if>
+      <if test="authority != null">
+        authority = #{authority,jdbcType=VARCHAR},
+      </if>
+      <if test="calid != null">
+        calid = #{calid,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNum != null">
+        card_num = #{cardNum,jdbcType=VARCHAR},
+      </if>
+      <if test="checkType != null">
+        check_type = #{checkType,jdbcType=VARCHAR},
+      </if>
+      <if test="comA8id != null">
+        com_a8id = #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        com_id = #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="depA8id != null">
+        dep_a8id = #{depA8id,jdbcType=BIGINT},
+      </if>
+      <if test="empA8id != null">
+        emp_a8id = #{empA8id,jdbcType=BIGINT},
+      </if>
+      <if test="empAccount != null">
+        emp_account = #{empAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        emp_no = #{empNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lvA8id != null">
+        lv_a8id = #{lvA8id,jdbcType=BIGINT},
+      </if>
+      <if test="opendoorType != null">
+        opendoor_type = #{opendoorType,jdbcType=VARCHAR},
+      </if>
+      <if test="postA8id != null">
+        post_a8id = #{postA8id,jdbcType=BIGINT},
+      </if>
+      <if test="sn != null">
+        sn = #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        syn_time = #{synTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeStep != null">
+        time_step = #{timeStep,jdbcType=BIGINT},
+      </if>
+      <if test="depId != null">
+        dep_id = #{depId,jdbcType=BIGINT},
+      </if>
+      <if test="lvId != null">
+        lv_id = #{lvId,jdbcType=BIGINT},
+      </if>
+      <if test="postId != null">
+        post_id = #{postId,jdbcType=BIGINT},
+      </if>
+      <if test="empEmail != null">
+        emp_email = #{empEmail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where emp_id = #{empId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.spbm.entity.InfoEmployee">
+    update info_employee
+    set cre_time = #{creTime,jdbcType=TIMESTAMP},
+      cre_usr = #{creUsr,jdbcType=BIGINT},
+      status = #{status,jdbcType=INTEGER},
+      upd_time = #{updTime,jdbcType=TIMESTAMP},
+      upd_usr = #{updUsr,jdbcType=BIGINT},
+      alg_edition = #{algEdition,jdbcType=VARCHAR},
+      authority = #{authority,jdbcType=VARCHAR},
+      calid = #{calid,jdbcType=VARCHAR},
+      card_num = #{cardNum,jdbcType=VARCHAR},
+      check_type = #{checkType,jdbcType=VARCHAR},
+      com_a8id = #{comA8id,jdbcType=BIGINT},
+      com_id = #{comId,jdbcType=BIGINT},
+      dep_a8id = #{depA8id,jdbcType=BIGINT},
+      emp_a8id = #{empA8id,jdbcType=BIGINT},
+      emp_account = #{empAccount,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_no = #{empNo,jdbcType=VARCHAR},
+      lv_a8id = #{lvA8id,jdbcType=BIGINT},
+      opendoor_type = #{opendoorType,jdbcType=VARCHAR},
+      post_a8id = #{postA8id,jdbcType=BIGINT},
+      sn = #{sn,jdbcType=VARCHAR},
+      syn_time = #{synTime,jdbcType=TIMESTAMP},
+      time_step = #{timeStep,jdbcType=BIGINT},
+      dep_id = #{depId,jdbcType=BIGINT},
+      lv_id = #{lvId,jdbcType=BIGINT},
+      post_id = #{postId,jdbcType=BIGINT},
+      emp_email = #{empEmail,jdbcType=VARCHAR}
+    where emp_id = #{empId,jdbcType=BIGINT}
+  </update>
+  
+  <!-- 这个方法是我自己加的 -->
+  <select id="selectAllInfoEmployee" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from info_employee
+  </select>
+  
+</mapper>

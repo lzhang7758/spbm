@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.spbm.dao.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.zl.spbm.entity.SysRole">
+    <id column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="available" jdbcType="BIT" property="available" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <collection property="permissions" ofType="com.zl.spbm.entity.SysPermission">
+		<id column="permission_id" jdbcType="INTEGER" property="permissionId" />
+		<result column="available" jdbcType="BIT" property="available" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="parent_id" jdbcType="BIGINT" property="parentId" />
+		<result column="parent_ids" jdbcType="VARCHAR" property="parentIds" />
+		<result column="permission" jdbcType="VARCHAR" property="permission" />
+		<result column="resource_type" jdbcType="CHAR" property="resourceType" />
+		<result column="url" jdbcType="VARCHAR" property="url" />
+    </collection>
+    <collection property="userInfos" ofType="com.zl.spbm.entity.UserInfo">
+	    <id column="uid" jdbcType="INTEGER" property="uid" />
+	    <result column="uname" jdbcType="VARCHAR" property="name" />
+	    <result column="password" jdbcType="VARCHAR" property="password" />
+	    <result column="salt" jdbcType="VARCHAR" property="salt" />
+	    <result column="state" jdbcType="TINYINT" property="state" />
+	    <result column="username" jdbcType="VARCHAR" property="username" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List">
+    role_id, available, description, role
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!-- select 
+    <include refid="Base_Column_List" />
+    from sys_role -->
+	SELECT 
+	  r.role_id,
+	  r.available,
+	  r.description,
+	  r.role,
+	  p.permission_id,
+	  p.available,
+	  p.name,
+	  p.parent_id,
+	  p.parent_ids,
+	  p.permission,
+	  p.resource_type,
+	  p.url,
+	  u.uid,
+	  u.name uname,
+	  u.password,
+	  u.salt,
+	  u.state,
+	  u.username
+	FROM sys_role r
+	LEFT JOIN sys_role_permission rp ON r.role_id = rp.role_id
+	LEFT JOIN sys_permission p ON rp.permission_id = p.permission_id
+	LEFT JOIN sys_user_role ur ON r.role_id = ur.role_id
+	LEFT JOIN user_info u ON ur.ur_id = u.uid
+    where r.role_id = #{roleId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectSysRoleById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+	SELECT 
+	  r.role_id,
+	  r.available,
+	  r.description,
+	  r.role,
+	  p.permission_id,
+	  p.available,
+	  p.name,
+	  p.parent_id,
+	  p.parent_ids,
+	  p.permission,
+	  p.resource_type,
+	  p.url
+	FROM sys_role r
+	LEFT JOIN sys_role_permission rp ON r.role_id = rp.role_id
+	LEFT JOIN sys_permission p ON rp.permission_id = p.permission_id
+    where r.role_id = #{roleId,jdbcType=INTEGER}
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_role
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zl.spbm.entity.SysRole">
+    insert into sys_role (role_id, available, description, 
+      role)
+    values (#{roleId,jdbcType=INTEGER}, #{available,jdbcType=BIT}, #{description,jdbcType=VARCHAR}, 
+      #{role,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.spbm.entity.SysRole">
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="available != null">
+        available,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="available != null">
+        #{available,jdbcType=BIT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.spbm.entity.SysRole">
+    update sys_role
+    <set>
+      <if test="available != null">
+        available = #{available,jdbcType=BIT},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.spbm.entity.SysRole">
+    update sys_role
+    set available = #{available,jdbcType=BIT},
+      description = #{description,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR}
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </update>
+</mapper>
