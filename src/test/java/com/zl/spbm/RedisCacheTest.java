@@ -1,9 +1,5 @@
 package com.zl.spbm;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -11,13 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
-import com.zl.spbm.entity.InfoEmployee;
 import com.zl.spbm.service.inter.IInfoEmployeeService;
-import com.zl.spbm.service.inter.IUserInfoService;
 import com.zl.spbm.utils.RedisUtils;
 
 /**
@@ -33,27 +24,12 @@ public class RedisCacheTest {
 	private RedisUtils redisUtils;
 
 	@Autowired
-	private IInfoEmployeeService infoEmployeeService;
+	IInfoEmployeeService infoEmpService;
 
 	@Test
 	public void redisTest() {
-		PageInfo<InfoEmployee> emp = infoEmployeeService.selectAllInfoEmployee(1, 10);
-		Map<String, Object> map = new HashMap<String,Object>();
-		for (InfoEmployee e : emp.getList()) {
-			map.put(e.getEmpId()+"", e);
-		}
-		
-		redisUtils.set("mapInfoEmployee", map);
-		logger.debug("redisUtils.set=>进入了方法");
-		Map<String, Object> map1 = (Map<String, Object>) redisUtils.get("mapInfoEmployee");
-		Gson gson = new Gson();
-		logger.debug("redisUtils.get=>result=" + gson.toJson(map1));
-		
-		if(redisUtils.exists("mapInfoEmployee")) {
-			logger.debug("exists~~~~~");
-			redisUtils.remove("mapInfoEmployee");
-		}
-		redisUtils.remove("mapInfoEmployee");
+		redisUtils.set("张三", infoEmpService.selectByPrimaryKey(1220L));
+		redisUtils.set("张三1", infoEmpService.selectByPrimaryKey(951L));
 	}
 
 }
