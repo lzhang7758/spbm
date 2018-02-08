@@ -48,8 +48,7 @@ public class InfoEmployeeServiceImpl implements IInfoEmployeeService {
 
 	@Override
 	public int updateByPrimaryKey(InfoEmployee record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return employeeMapper.updateByPrimaryKey(record);
 	}
 
 	@Override
