@@ -1,7 +1,14 @@
 package com.zl.spbm.entity;
 
-public class SysUserRole {
-    private Integer urId;
+import java.io.Serializable;
+
+public class SysUserRole implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 278215766210742006L;
+
+	private Integer urId;
 
     private Integer roleId;
 

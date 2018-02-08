@@ -1,7 +1,14 @@
 package com.zl.spbm.entity;
 
-public class SysRolePermission {
-    private Integer rpId;
+import java.io.Serializable;
+
+public class SysRolePermission implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3653640063981773244L;
+
+	private Integer rpId;
 
     private Integer permissionId;
 

@@ -1,9 +1,15 @@
 package com.zl.spbm.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SysPermission {
-    private Integer permissionId;
+public class SysPermission implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8495322655652149311L;
+
+	private Integer permissionId;
 
     private Boolean available;
 

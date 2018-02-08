@@ -1,9 +1,13 @@
 package com.zl.spbm.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class InfoEmployee {
-    private Long empId;
+public class InfoEmployee implements Serializable{
+	
+	private static final long serialVersionUID = -8398794408504881678L;
+
+	private Long empId;
 
     private Date creTime;
 

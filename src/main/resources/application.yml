@@ -30,17 +30,25 @@ spring:
         removeAbandonedTimeout: 1800
         #关闭abanded连接时输出错误日志
         logAbandoned: true
-        
+    #邮箱配置    
     mail:
         host: smtp.exmail.qq.com #邮箱地址
         username: zhangliang@qk365.com #登录用户
         password: lzhang123
         default-encoding: UTF-8
-        
-#以谁来发送邮件
-mail:
-  fromMail:
-    addr: zhangliang@qk365.com
+        fromMail:
+          addr: zhangliang@qk365.com
+    #redis配置
+    redis:
+      database: 0
+      host: 127.0.0.1
+      password: 
+      port: 6379
+      pool: 
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
     
 mybatis:
   mapper-locations: classpath*:/mapper/**Mapper.xml
@@ -52,5 +60,3 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
-  
- 
