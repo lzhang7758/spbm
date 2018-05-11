@@ -1,31 +1,38 @@
 package com.zl.spbm.config;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Properties;
+
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Properties;
-
 @Configuration
-public class ShiroConfig {
+public class ShiroConfiguration {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ShiroConfiguration.class);
+	
 	@Bean
 	public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
-		System.out.println("ShiroConfiguration.shirFilter()");
+		logger.info("ShiroConfiguration.shirFilter()");
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+		// 必须设置 SecurityManager
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
 		//拦截器.
 		Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
 		// 配置不会被拦截的链接 顺序判断
 		filterChainDefinitionMap.put("/static/**", "anon");
+		
 		//配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了
-		filterChainDefinitionMap.put("/logout", "logout");
+		//filterChainDefinitionMap.put("/logout", "logout");
 		
 		//<!-- 过滤链定义，从上向下顺序执行，一般将/**放在最为下边 -->
 		//<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
@@ -46,8 +53,7 @@ public class ShiroConfig {
 
 	/**
 	 * 凭证匹配器
-	 * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
-	 * ）
+	 * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了）
 	 * @return
 	 */
 	@Bean
