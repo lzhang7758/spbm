@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.spbm.dao.A8FormMapper">
+  <resultMap id="BaseResultMap" type="com.zl.spbm.entity.A8Form">
+    <!--@mbg.generated-->
+    <id column="temp_id" jdbcType="BIGINT" property="tempId" />
+    <result column="temp_sql" jdbcType="VARCHAR" property="tempSql" />
+    <result column="temp_type" jdbcType="VARCHAR" property="tempType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    temp_id, temp_sql, temp_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from a8_form
+    where temp_id = #{tempId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from a8_form
+    where temp_id = #{tempId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="temp_id" keyProperty="tempId" parameterType="com.zl.spbm.entity.A8Form" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into a8_form (temp_sql, temp_type)
+    values (#{tempSql,jdbcType=VARCHAR}, #{tempType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="temp_id" keyProperty="tempId" parameterType="com.zl.spbm.entity.A8Form" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into a8_form
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tempSql != null">
+        temp_sql,
+      </if>
+      <if test="tempType != null">
+        temp_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tempSql != null">
+        #{tempSql,jdbcType=VARCHAR},
+      </if>
+      <if test="tempType != null">
+        #{tempType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.spbm.entity.A8Form">
+    <!--@mbg.generated-->
+    update a8_form
+    <set>
+      <if test="tempSql != null">
+        temp_sql = #{tempSql,jdbcType=VARCHAR},
+      </if>
+      <if test="tempType != null">
+        temp_type = #{tempType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where temp_id = #{tempId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.spbm.entity.A8Form">
+    <!--@mbg.generated-->
+    update a8_form
+    set temp_sql = #{tempSql,jdbcType=VARCHAR},
+      temp_type = #{tempType,jdbcType=VARCHAR}
+    where temp_id = #{tempId,jdbcType=BIGINT}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update a8_form
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="temp_sql = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when temp_id = #{item.tempId,jdbcType=BIGINT} then #{item.tempSql,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="temp_type = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when temp_id = #{item.tempId,jdbcType=BIGINT} then #{item.tempType,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where temp_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.tempId,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="temp_id" keyProperty="tempId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into a8_form
+    (temp_sql, temp_type)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.tempSql,jdbcType=VARCHAR}, #{item.tempType,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="temp_id" keyProperty="tempId" parameterType="com.zl.spbm.entity.A8Form" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into a8_form
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tempId != null">
+        temp_id,
+      </if>
+      temp_sql,
+      temp_type,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tempId != null">
+        #{tempId,jdbcType=BIGINT},
+      </if>
+      #{tempSql,jdbcType=VARCHAR},
+      #{tempType,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="tempId != null">
+        temp_id = #{tempId,jdbcType=BIGINT},
+      </if>
+      temp_sql = #{tempSql,jdbcType=VARCHAR},
+      temp_type = #{tempType,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="temp_id" keyProperty="tempId" parameterType="com.zl.spbm.entity.A8Form" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into a8_form
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tempId != null">
+        temp_id,
+      </if>
+      <if test="tempSql != null">
+        temp_sql,
+      </if>
+      <if test="tempType != null">
+        temp_type,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tempId != null">
+        #{tempId,jdbcType=BIGINT},
+      </if>
+      <if test="tempSql != null">
+        #{tempSql,jdbcType=VARCHAR},
+      </if>
+      <if test="tempType != null">
+        #{tempType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="tempId != null">
+        temp_id = #{tempId,jdbcType=BIGINT},
+      </if>
+      <if test="tempSql != null">
+        temp_sql = #{tempSql,jdbcType=VARCHAR},
+      </if>
+      <if test="tempType != null">
+        temp_type = #{tempType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.spbm.dao.InfoLevelMapper">
+  <resultMap id="BaseResultMap" type="com.zl.spbm.entity.InfoLevel">
+    <!--@mbg.generated-->
+    <id column="lv_id" jdbcType="BIGINT" property="lvId" />
+    <result column="cre_time" jdbcType="TIMESTAMP" property="creTime" />
+    <result column="cre_usr" jdbcType="BIGINT" property="creUsr" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="upd_time" jdbcType="TIMESTAMP" property="updTime" />
+    <result column="upd_usr" jdbcType="BIGINT" property="updUsr" />
+    <result column="com_a8id" jdbcType="BIGINT" property="comA8id" />
+    <result column="com_id" jdbcType="BIGINT" property="comId" />
+    <result column="lv_a8id" jdbcType="BIGINT" property="lvA8id" />
+    <result column="lv_code" jdbcType="VARCHAR" property="lvCode" />
+    <result column="lv_description" jdbcType="VARCHAR" property="lvDescription" />
+    <result column="lv_name" jdbcType="VARCHAR" property="lvName" />
+    <result column="lv_no" jdbcType="VARCHAR" property="lvNo" />
+    <result column="syn_time" jdbcType="TIMESTAMP" property="synTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    lv_id, cre_time, cre_usr, `status`, upd_time, upd_usr, com_a8id, com_id, lv_a8id, 
+    lv_code, lv_description, lv_name, lv_no, syn_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from info_level
+    where lv_id = #{lvId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from info_level
+    where lv_id = #{lvId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="lv_id" keyProperty="lvId" parameterType="com.zl.spbm.entity.InfoLevel" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_level (cre_time, cre_usr, `status`, 
+      upd_time, upd_usr, com_a8id, 
+      com_id, lv_a8id, lv_code, 
+      lv_description, lv_name, lv_no, 
+      syn_time)
+    values (#{creTime,jdbcType=TIMESTAMP}, #{creUsr,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, 
+      #{updTime,jdbcType=TIMESTAMP}, #{updUsr,jdbcType=BIGINT}, #{comA8id,jdbcType=BIGINT}, 
+      #{comId,jdbcType=BIGINT}, #{lvA8id,jdbcType=BIGINT}, #{lvCode,jdbcType=VARCHAR}, 
+      #{lvDescription,jdbcType=VARCHAR}, #{lvName,jdbcType=VARCHAR}, #{lvNo,jdbcType=VARCHAR}, 
+      #{synTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="lv_id" keyProperty="lvId" parameterType="com.zl.spbm.entity.InfoLevel" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_level
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="comA8id != null">
+        com_a8id,
+      </if>
+      <if test="comId != null">
+        com_id,
+      </if>
+      <if test="lvA8id != null">
+        lv_a8id,
+      </if>
+      <if test="lvCode != null">
+        lv_code,
+      </if>
+      <if test="lvDescription != null">
+        lv_description,
+      </if>
+      <if test="lvName != null">
+        lv_name,
+      </if>
+      <if test="lvNo != null">
+        lv_no,
+      </if>
+      <if test="synTime != null">
+        syn_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="creTime != null">
+        #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="comA8id != null">
+        #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="lvA8id != null">
+        #{lvA8id,jdbcType=BIGINT},
+      </if>
+      <if test="lvCode != null">
+        #{lvCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lvDescription != null">
+        #{lvDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="lvName != null">
+        #{lvName,jdbcType=VARCHAR},
+      </if>
+      <if test="lvNo != null">
+        #{lvNo,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.spbm.entity.InfoLevel">
+    <!--@mbg.generated-->
+    update info_level
+    <set>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="comA8id != null">
+        com_a8id = #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        com_id = #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="lvA8id != null">
+        lv_a8id = #{lvA8id,jdbcType=BIGINT},
+      </if>
+      <if test="lvCode != null">
+        lv_code = #{lvCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lvDescription != null">
+        lv_description = #{lvDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="lvName != null">
+        lv_name = #{lvName,jdbcType=VARCHAR},
+      </if>
+      <if test="lvNo != null">
+        lv_no = #{lvNo,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        syn_time = #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where lv_id = #{lvId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.spbm.entity.InfoLevel">
+    <!--@mbg.generated-->
+    update info_level
+    set cre_time = #{creTime,jdbcType=TIMESTAMP},
+      cre_usr = #{creUsr,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=INTEGER},
+      upd_time = #{updTime,jdbcType=TIMESTAMP},
+      upd_usr = #{updUsr,jdbcType=BIGINT},
+      com_a8id = #{comA8id,jdbcType=BIGINT},
+      com_id = #{comId,jdbcType=BIGINT},
+      lv_a8id = #{lvA8id,jdbcType=BIGINT},
+      lv_code = #{lvCode,jdbcType=VARCHAR},
+      lv_description = #{lvDescription,jdbcType=VARCHAR},
+      lv_name = #{lvName,jdbcType=VARCHAR},
+      lv_no = #{lvNo,jdbcType=VARCHAR},
+      syn_time = #{synTime,jdbcType=TIMESTAMP}
+    where lv_id = #{lvId,jdbcType=BIGINT}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update info_level
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="cre_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.creTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="cre_usr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.creUsr,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.status,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="upd_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.updTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="upd_usr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.updUsr,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="com_a8id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.comA8id,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="com_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.comId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="lv_a8id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.lvA8id,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="lv_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.lvCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="lv_description = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.lvDescription,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="lv_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.lvName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="lv_no = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.lvNo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="syn_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lv_id = #{item.lvId,jdbcType=BIGINT} then #{item.synTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where lv_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.lvId,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="lv_id" keyProperty="lvId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_level
+    (cre_time, cre_usr, `status`, upd_time, upd_usr, com_a8id, com_id, lv_a8id, lv_code, 
+      lv_description, lv_name, lv_no, syn_time)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.creTime,jdbcType=TIMESTAMP}, #{item.creUsr,jdbcType=BIGINT}, #{item.status,jdbcType=INTEGER}, 
+        #{item.updTime,jdbcType=TIMESTAMP}, #{item.updUsr,jdbcType=BIGINT}, #{item.comA8id,jdbcType=BIGINT}, 
+        #{item.comId,jdbcType=BIGINT}, #{item.lvA8id,jdbcType=BIGINT}, #{item.lvCode,jdbcType=VARCHAR}, 
+        #{item.lvDescription,jdbcType=VARCHAR}, #{item.lvName,jdbcType=VARCHAR}, #{item.lvNo,jdbcType=VARCHAR}, 
+        #{item.synTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="lv_id" keyProperty="lvId" parameterType="com.zl.spbm.entity.InfoLevel" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_level
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lvId != null">
+        lv_id,
+      </if>
+      cre_time,
+      cre_usr,
+      `status`,
+      upd_time,
+      upd_usr,
+      com_a8id,
+      com_id,
+      lv_a8id,
+      lv_code,
+      lv_description,
+      lv_name,
+      lv_no,
+      syn_time,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lvId != null">
+        #{lvId,jdbcType=BIGINT},
+      </if>
+      #{creTime,jdbcType=TIMESTAMP},
+      #{creUsr,jdbcType=BIGINT},
+      #{status,jdbcType=INTEGER},
+      #{updTime,jdbcType=TIMESTAMP},
+      #{updUsr,jdbcType=BIGINT},
+      #{comA8id,jdbcType=BIGINT},
+      #{comId,jdbcType=BIGINT},
+      #{lvA8id,jdbcType=BIGINT},
+      #{lvCode,jdbcType=VARCHAR},
+      #{lvDescription,jdbcType=VARCHAR},
+      #{lvName,jdbcType=VARCHAR},
+      #{lvNo,jdbcType=VARCHAR},
+      #{synTime,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="lvId != null">
+        lv_id = #{lvId,jdbcType=BIGINT},
+      </if>
+      cre_time = #{creTime,jdbcType=TIMESTAMP},
+      cre_usr = #{creUsr,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=INTEGER},
+      upd_time = #{updTime,jdbcType=TIMESTAMP},
+      upd_usr = #{updUsr,jdbcType=BIGINT},
+      com_a8id = #{comA8id,jdbcType=BIGINT},
+      com_id = #{comId,jdbcType=BIGINT},
+      lv_a8id = #{lvA8id,jdbcType=BIGINT},
+      lv_code = #{lvCode,jdbcType=VARCHAR},
+      lv_description = #{lvDescription,jdbcType=VARCHAR},
+      lv_name = #{lvName,jdbcType=VARCHAR},
+      lv_no = #{lvNo,jdbcType=VARCHAR},
+      syn_time = #{synTime,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="lv_id" keyProperty="lvId" parameterType="com.zl.spbm.entity.InfoLevel" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_level
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lvId != null">
+        lv_id,
+      </if>
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="comA8id != null">
+        com_a8id,
+      </if>
+      <if test="comId != null">
+        com_id,
+      </if>
+      <if test="lvA8id != null">
+        lv_a8id,
+      </if>
+      <if test="lvCode != null">
+        lv_code,
+      </if>
+      <if test="lvDescription != null">
+        lv_description,
+      </if>
+      <if test="lvName != null">
+        lv_name,
+      </if>
+      <if test="lvNo != null">
+        lv_no,
+      </if>
+      <if test="synTime != null">
+        syn_time,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lvId != null">
+        #{lvId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null">
+        #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="comA8id != null">
+        #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="lvA8id != null">
+        #{lvA8id,jdbcType=BIGINT},
+      </if>
+      <if test="lvCode != null">
+        #{lvCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lvDescription != null">
+        #{lvDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="lvName != null">
+        #{lvName,jdbcType=VARCHAR},
+      </if>
+      <if test="lvNo != null">
+        #{lvNo,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="lvId != null">
+        lv_id = #{lvId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="comA8id != null">
+        com_a8id = #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        com_id = #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="lvA8id != null">
+        lv_a8id = #{lvA8id,jdbcType=BIGINT},
+      </if>
+      <if test="lvCode != null">
+        lv_code = #{lvCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lvDescription != null">
+        lv_description = #{lvDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="lvName != null">
+        lv_name = #{lvName,jdbcType=VARCHAR},
+      </if>
+      <if test="lvNo != null">
+        lv_no = #{lvNo,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        syn_time = #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

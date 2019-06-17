@@ -1,67 +1,181 @@
 package com.zl.spbm.entity;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
-public class InfoEmployee implements Serializable{
-	
-	private static final long serialVersionUID = -8398794408504881678L;
+/**
+ * @Author: lzhang
+ * @Date: 2019/4/11 17:03
+ */
+public class InfoEmployee {
+    private static final long serialVersionUID = -8398794408504881678L;
+    private Long empId;
 
-	private Long empId;
+    /**
+     * 创建时间
+     */
+    private LocalDateTime creTime;
 
-    private Date creTime;
-
+    /**
+     * 创建人
+     */
     private Long creUsr;
 
+    /**
+     * 状态
+     */
     private Integer status;
 
-    private Date updTime;
+    /**
+     * 更新时间
+     */
+    private LocalDateTime updTime;
 
+    /**
+     * 更新人
+     */
     private Long updUsr;
 
+    /**
+     * 算法版本
+     */
     private String algEdition;
 
+    /**
+     * 权限
+     */
     private String authority;
 
     private String calid;
 
+    /**
+     * 卡号
+     */
     private String cardNum;
 
+    /**
+     * 考勤类型
+     */
     private String checkType;
 
+    /**
+     * 公司A8Id
+     */
     private Long comA8id;
 
+    /**
+     * 公司Id
+     */
     private Long comId;
 
+    /**
+     * 部门A8Id
+     */
     private Long depA8id;
 
+    /**
+     * 员工A8Id
+     */
     private Long empA8id;
 
+    /**
+     * 登陆名
+     */
     private String empAccount;
 
+    /**
+     * 员工姓名
+     */
     private String empName;
 
+    /**
+     * 员工编号
+     */
     private String empNo;
 
+    /**
+     * 职级A8Id
+     */
     private Long lvA8id;
 
+    /**
+     * 开门类型
+     */
     private String opendoorType;
 
+    /**
+     * 职位A8Id
+     */
     private Long postA8id;
 
+    /**
+     * 设备序列号
+     */
     private String sn;
 
-    private Date synTime;
+    /**
+     * 同步时间
+     */
+    private LocalDateTime synTime;
 
+    /**
+     * 更新时间戳
+     */
     private Long timeStep;
 
+    /**
+     * 部门Id
+     */
     private Long depId;
 
+    /**
+     * 职级Id
+     */
     private Long lvId;
 
+    /**
+     * 职位Id
+     */
     private Long postId;
 
+    /**
+     * 邮箱地址
+     */
     private String empEmail;
+
+    /**
+     * 邮箱密码
+     */
+    private String empEmailPwd;
+
+    /**
+     * 邮箱修改操作时间
+     */
+    private LocalDateTime optemailTime;
+
+    /**
+     * 邮箱修改操作人
+     */
+    private Long optemailUsrid;
+
+    /**
+     * 岗位Code
+     */
+    private String positioncode;
+
+    /**
+     * 专业Code
+     */
+    private String majorcode;
+
+    /**
+     * 手机号
+     */
+    private String tel;
+
+    /**
+     * 租户ID
+     */
+    private Integer tenantid;
 
     public Long getEmpId() {
         return empId;
@@ -71,11 +185,11 @@ public class InfoEmployee implements Serializable{
         this.empId = empId;
     }
 
-    public Date getCreTime() {
+    public LocalDateTime getCreTime() {
         return creTime;
     }
 
-    public void setCreTime(Date creTime) {
+    public void setCreTime(LocalDateTime creTime) {
         this.creTime = creTime;
     }
 
@@ -95,11 +209,11 @@ public class InfoEmployee implements Serializable{
         this.status = status;
     }
 
-    public Date getUpdTime() {
+    public LocalDateTime getUpdTime() {
         return updTime;
     }
 
-    public void setUpdTime(Date updTime) {
+    public void setUpdTime(LocalDateTime updTime) {
         this.updTime = updTime;
     }
 
@@ -116,7 +230,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setAlgEdition(String algEdition) {
-        this.algEdition = algEdition == null ? null : algEdition.trim();
+        this.algEdition = algEdition;
     }
 
     public String getAuthority() {
@@ -124,7 +238,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setAuthority(String authority) {
-        this.authority = authority == null ? null : authority.trim();
+        this.authority = authority;
     }
 
     public String getCalid() {
@@ -132,7 +246,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setCalid(String calid) {
-        this.calid = calid == null ? null : calid.trim();
+        this.calid = calid;
     }
 
     public String getCardNum() {
@@ -140,7 +254,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setCardNum(String cardNum) {
-        this.cardNum = cardNum == null ? null : cardNum.trim();
+        this.cardNum = cardNum;
     }
 
     public String getCheckType() {
@@ -148,7 +262,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setCheckType(String checkType) {
-        this.checkType = checkType == null ? null : checkType.trim();
+        this.checkType = checkType;
     }
 
     public Long getComA8id() {
@@ -188,7 +302,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setEmpAccount(String empAccount) {
-        this.empAccount = empAccount == null ? null : empAccount.trim();
+        this.empAccount = empAccount;
     }
 
     public String getEmpName() {
@@ -196,7 +310,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setEmpName(String empName) {
-        this.empName = empName == null ? null : empName.trim();
+        this.empName = empName;
     }
 
     public String getEmpNo() {
@@ -204,7 +318,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setEmpNo(String empNo) {
-        this.empNo = empNo == null ? null : empNo.trim();
+        this.empNo = empNo;
     }
 
     public Long getLvA8id() {
@@ -220,7 +334,7 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setOpendoorType(String opendoorType) {
-        this.opendoorType = opendoorType == null ? null : opendoorType.trim();
+        this.opendoorType = opendoorType;
     }
 
     public Long getPostA8id() {
@@ -236,14 +350,14 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setSn(String sn) {
-        this.sn = sn == null ? null : sn.trim();
+        this.sn = sn;
     }
 
-    public Date getSynTime() {
+    public LocalDateTime getSynTime() {
         return synTime;
     }
 
-    public void setSynTime(Date synTime) {
+    public void setSynTime(LocalDateTime synTime) {
         this.synTime = synTime;
     }
 
@@ -284,6 +398,62 @@ public class InfoEmployee implements Serializable{
     }
 
     public void setEmpEmail(String empEmail) {
-        this.empEmail = empEmail == null ? null : empEmail.trim();
+        this.empEmail = empEmail;
+    }
+
+    public String getEmpEmailPwd() {
+        return empEmailPwd;
+    }
+
+    public void setEmpEmailPwd(String empEmailPwd) {
+        this.empEmailPwd = empEmailPwd;
+    }
+
+    public LocalDateTime getOptemailTime() {
+        return optemailTime;
+    }
+
+    public void setOptemailTime(LocalDateTime optemailTime) {
+        this.optemailTime = optemailTime;
+    }
+
+    public Long getOptemailUsrid() {
+        return optemailUsrid;
+    }
+
+    public void setOptemailUsrid(Long optemailUsrid) {
+        this.optemailUsrid = optemailUsrid;
+    }
+
+    public String getPositioncode() {
+        return positioncode;
+    }
+
+    public void setPositioncode(String positioncode) {
+        this.positioncode = positioncode;
+    }
+
+    public String getMajorcode() {
+        return majorcode;
+    }
+
+    public void setMajorcode(String majorcode) {
+        this.majorcode = majorcode;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public Integer getTenantid() {
+        return tenantid;
+    }
+
+    public void setTenantid(Integer tenantid) {
+        this.tenantid = tenantid;
     }
 }

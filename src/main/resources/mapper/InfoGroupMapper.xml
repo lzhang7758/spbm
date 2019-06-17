@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.spbm.dao.InfoGroupMapper">
+  <resultMap id="BaseResultMap" type="com.zl.spbm.entity.InfoGroup">
+    <!--@mbg.generated-->
+    <id column="usg_id" jdbcType="BIGINT" property="usgId" />
+    <result column="usg_code" jdbcType="VARCHAR" property="usgCode" />
+    <result column="usg_name" jdbcType="VARCHAR" property="usgName" />
+    <result column="cre_time" jdbcType="DATE" property="creTime" />
+    <result column="cre_usr" jdbcType="VARCHAR" property="creUsr" />
+    <result column="upd_usr" jdbcType="VARCHAR" property="updUsr" />
+    <result column="upd_time" jdbcType="DATE" property="updTime" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    usg_id, usg_code, usg_name, cre_time, cre_usr, upd_usr, upd_time, `STATUS`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from info_group
+    where usg_id = #{usgId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from info_group
+    where usg_id = #{usgId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="usg_id" keyProperty="usgId" parameterType="com.zl.spbm.entity.InfoGroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_group (usg_code, usg_name, cre_time, 
+      cre_usr, upd_usr, upd_time, 
+      `STATUS`)
+    values (#{usgCode,jdbcType=VARCHAR}, #{usgName,jdbcType=VARCHAR}, #{creTime,jdbcType=DATE}, 
+      #{creUsr,jdbcType=VARCHAR}, #{updUsr,jdbcType=VARCHAR}, #{updTime,jdbcType=DATE}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="usg_id" keyProperty="usgId" parameterType="com.zl.spbm.entity.InfoGroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_group
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usgCode != null">
+        usg_code,
+      </if>
+      <if test="usgName != null">
+        usg_name,
+      </if>
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="usgCode != null">
+        #{usgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="usgName != null">
+        #{usgName,jdbcType=VARCHAR},
+      </if>
+      <if test="creTime != null">
+        #{creTime,jdbcType=DATE},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.spbm.entity.InfoGroup">
+    <!--@mbg.generated-->
+    update info_group
+    <set>
+      <if test="usgCode != null">
+        usg_code = #{usgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="usgName != null">
+        usg_name = #{usgName,jdbcType=VARCHAR},
+      </if>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=DATE},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where usg_id = #{usgId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.spbm.entity.InfoGroup">
+    <!--@mbg.generated-->
+    update info_group
+    set usg_code = #{usgCode,jdbcType=VARCHAR},
+      usg_name = #{usgName,jdbcType=VARCHAR},
+      cre_time = #{creTime,jdbcType=DATE},
+      cre_usr = #{creUsr,jdbcType=VARCHAR},
+      upd_usr = #{updUsr,jdbcType=VARCHAR},
+      upd_time = #{updTime,jdbcType=DATE},
+      `STATUS` = #{status,jdbcType=INTEGER}
+    where usg_id = #{usgId,jdbcType=BIGINT}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update info_group
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="usg_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when usg_id = #{item.usgId,jdbcType=BIGINT} then #{item.usgCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="usg_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when usg_id = #{item.usgId,jdbcType=BIGINT} then #{item.usgName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="cre_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when usg_id = #{item.usgId,jdbcType=BIGINT} then #{item.creTime,jdbcType=DATE}
+        </foreach>
+      </trim>
+      <trim prefix="cre_usr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when usg_id = #{item.usgId,jdbcType=BIGINT} then #{item.creUsr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="upd_usr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when usg_id = #{item.usgId,jdbcType=BIGINT} then #{item.updUsr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="upd_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when usg_id = #{item.usgId,jdbcType=BIGINT} then #{item.updTime,jdbcType=DATE}
+        </foreach>
+      </trim>
+      <trim prefix="`STATUS` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when usg_id = #{item.usgId,jdbcType=BIGINT} then #{item.status,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where usg_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.usgId,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="usg_id" keyProperty="usgId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_group
+    (usg_code, usg_name, cre_time, cre_usr, upd_usr, upd_time, `STATUS`)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.usgCode,jdbcType=VARCHAR}, #{item.usgName,jdbcType=VARCHAR}, #{item.creTime,jdbcType=DATE}, 
+        #{item.creUsr,jdbcType=VARCHAR}, #{item.updUsr,jdbcType=VARCHAR}, #{item.updTime,jdbcType=DATE}, 
+        #{item.status,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="usg_id" keyProperty="usgId" parameterType="com.zl.spbm.entity.InfoGroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_group
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usgId != null">
+        usg_id,
+      </if>
+      usg_code,
+      usg_name,
+      cre_time,
+      cre_usr,
+      upd_usr,
+      upd_time,
+      `STATUS`,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usgId != null">
+        #{usgId,jdbcType=BIGINT},
+      </if>
+      #{usgCode,jdbcType=VARCHAR},
+      #{usgName,jdbcType=VARCHAR},
+      #{creTime,jdbcType=DATE},
+      #{creUsr,jdbcType=VARCHAR},
+      #{updUsr,jdbcType=VARCHAR},
+      #{updTime,jdbcType=DATE},
+      #{status,jdbcType=INTEGER},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="usgId != null">
+        usg_id = #{usgId,jdbcType=BIGINT},
+      </if>
+      usg_code = #{usgCode,jdbcType=VARCHAR},
+      usg_name = #{usgName,jdbcType=VARCHAR},
+      cre_time = #{creTime,jdbcType=DATE},
+      cre_usr = #{creUsr,jdbcType=VARCHAR},
+      upd_usr = #{updUsr,jdbcType=VARCHAR},
+      upd_time = #{updTime,jdbcType=DATE},
+      `STATUS` = #{status,jdbcType=INTEGER},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="usg_id" keyProperty="usgId" parameterType="com.zl.spbm.entity.InfoGroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_group
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usgId != null">
+        usg_id,
+      </if>
+      <if test="usgCode != null">
+        usg_code,
+      </if>
+      <if test="usgName != null">
+        usg_name,
+      </if>
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usgId != null">
+        #{usgId,jdbcType=BIGINT},
+      </if>
+      <if test="usgCode != null">
+        #{usgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="usgName != null">
+        #{usgName,jdbcType=VARCHAR},
+      </if>
+      <if test="creTime != null">
+        #{creTime,jdbcType=DATE},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="usgId != null">
+        usg_id = #{usgId,jdbcType=BIGINT},
+      </if>
+      <if test="usgCode != null">
+        usg_code = #{usgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="usgName != null">
+        usg_name = #{usgName,jdbcType=VARCHAR},
+      </if>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=DATE},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

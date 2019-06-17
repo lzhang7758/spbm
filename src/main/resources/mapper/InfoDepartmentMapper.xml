@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.spbm.dao.InfoDepartmentMapper">
+  <resultMap id="BaseResultMap" type="com.zl.spbm.entity.InfoDepartment">
+    <!--@mbg.generated-->
+    <id column="dep_id" jdbcType="BIGINT" property="depId" />
+    <result column="cre_time" jdbcType="TIMESTAMP" property="creTime" />
+    <result column="cre_usr" jdbcType="BIGINT" property="creUsr" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="upd_time" jdbcType="TIMESTAMP" property="updTime" />
+    <result column="upd_usr" jdbcType="BIGINT" property="updUsr" />
+    <result column="com_a8id" jdbcType="BIGINT" property="comA8id" />
+    <result column="com_id" jdbcType="BIGINT" property="comId" />
+    <result column="dep_a8id" jdbcType="BIGINT" property="depA8id" />
+    <result column="dep_code" jdbcType="VARCHAR" property="depCode" />
+    <result column="dep_description" jdbcType="VARCHAR" property="depDescription" />
+    <result column="dep_name" jdbcType="VARCHAR" property="depName" />
+    <result column="dep_path" jdbcType="VARCHAR" property="depPath" />
+    <result column="dep_pid" jdbcType="BIGINT" property="depPid" />
+    <result column="dep_short_name" jdbcType="VARCHAR" property="depShortName" />
+    <result column="syn_time" jdbcType="TIMESTAMP" property="synTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    dep_id, cre_time, cre_usr, `status`, upd_time, upd_usr, com_a8id, com_id, dep_a8id, 
+    dep_code, dep_description, dep_name, dep_path, dep_pid, dep_short_name, syn_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from info_department
+    where dep_id = #{depId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from info_department
+    where dep_id = #{depId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="dep_id" keyProperty="depId" parameterType="com.zl.spbm.entity.InfoDepartment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_department (cre_time, cre_usr, `status`, 
+      upd_time, upd_usr, com_a8id, 
+      com_id, dep_a8id, dep_code, 
+      dep_description, dep_name, dep_path, 
+      dep_pid, dep_short_name, syn_time
+      )
+    values (#{creTime,jdbcType=TIMESTAMP}, #{creUsr,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, 
+      #{updTime,jdbcType=TIMESTAMP}, #{updUsr,jdbcType=BIGINT}, #{comA8id,jdbcType=BIGINT}, 
+      #{comId,jdbcType=BIGINT}, #{depA8id,jdbcType=BIGINT}, #{depCode,jdbcType=VARCHAR}, 
+      #{depDescription,jdbcType=VARCHAR}, #{depName,jdbcType=VARCHAR}, #{depPath,jdbcType=VARCHAR}, 
+      #{depPid,jdbcType=BIGINT}, #{depShortName,jdbcType=VARCHAR}, #{synTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="dep_id" keyProperty="depId" parameterType="com.zl.spbm.entity.InfoDepartment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_department
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="comA8id != null">
+        com_a8id,
+      </if>
+      <if test="comId != null">
+        com_id,
+      </if>
+      <if test="depA8id != null">
+        dep_a8id,
+      </if>
+      <if test="depCode != null">
+        dep_code,
+      </if>
+      <if test="depDescription != null">
+        dep_description,
+      </if>
+      <if test="depName != null">
+        dep_name,
+      </if>
+      <if test="depPath != null">
+        dep_path,
+      </if>
+      <if test="depPid != null">
+        dep_pid,
+      </if>
+      <if test="depShortName != null">
+        dep_short_name,
+      </if>
+      <if test="synTime != null">
+        syn_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="creTime != null">
+        #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="comA8id != null">
+        #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="depA8id != null">
+        #{depA8id,jdbcType=BIGINT},
+      </if>
+      <if test="depCode != null">
+        #{depCode,jdbcType=VARCHAR},
+      </if>
+      <if test="depDescription != null">
+        #{depDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="depPath != null">
+        #{depPath,jdbcType=VARCHAR},
+      </if>
+      <if test="depPid != null">
+        #{depPid,jdbcType=BIGINT},
+      </if>
+      <if test="depShortName != null">
+        #{depShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.spbm.entity.InfoDepartment">
+    <!--@mbg.generated-->
+    update info_department
+    <set>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="comA8id != null">
+        com_a8id = #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        com_id = #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="depA8id != null">
+        dep_a8id = #{depA8id,jdbcType=BIGINT},
+      </if>
+      <if test="depCode != null">
+        dep_code = #{depCode,jdbcType=VARCHAR},
+      </if>
+      <if test="depDescription != null">
+        dep_description = #{depDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        dep_name = #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="depPath != null">
+        dep_path = #{depPath,jdbcType=VARCHAR},
+      </if>
+      <if test="depPid != null">
+        dep_pid = #{depPid,jdbcType=BIGINT},
+      </if>
+      <if test="depShortName != null">
+        dep_short_name = #{depShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        syn_time = #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where dep_id = #{depId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.spbm.entity.InfoDepartment">
+    <!--@mbg.generated-->
+    update info_department
+    set cre_time = #{creTime,jdbcType=TIMESTAMP},
+      cre_usr = #{creUsr,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=INTEGER},
+      upd_time = #{updTime,jdbcType=TIMESTAMP},
+      upd_usr = #{updUsr,jdbcType=BIGINT},
+      com_a8id = #{comA8id,jdbcType=BIGINT},
+      com_id = #{comId,jdbcType=BIGINT},
+      dep_a8id = #{depA8id,jdbcType=BIGINT},
+      dep_code = #{depCode,jdbcType=VARCHAR},
+      dep_description = #{depDescription,jdbcType=VARCHAR},
+      dep_name = #{depName,jdbcType=VARCHAR},
+      dep_path = #{depPath,jdbcType=VARCHAR},
+      dep_pid = #{depPid,jdbcType=BIGINT},
+      dep_short_name = #{depShortName,jdbcType=VARCHAR},
+      syn_time = #{synTime,jdbcType=TIMESTAMP}
+    where dep_id = #{depId,jdbcType=BIGINT}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update info_department
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="cre_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.creTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="cre_usr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.creUsr,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.status,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="upd_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.updTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="upd_usr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.updUsr,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="com_a8id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.comA8id,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="com_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.comId,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="dep_a8id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.depA8id,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="dep_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.depCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="dep_description = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.depDescription,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="dep_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.depName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="dep_path = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.depPath,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="dep_pid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.depPid,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="dep_short_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.depShortName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="syn_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when dep_id = #{item.depId,jdbcType=BIGINT} then #{item.synTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where dep_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.depId,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="dep_id" keyProperty="depId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_department
+    (cre_time, cre_usr, `status`, upd_time, upd_usr, com_a8id, com_id, dep_a8id, dep_code, 
+      dep_description, dep_name, dep_path, dep_pid, dep_short_name, syn_time)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.creTime,jdbcType=TIMESTAMP}, #{item.creUsr,jdbcType=BIGINT}, #{item.status,jdbcType=INTEGER}, 
+        #{item.updTime,jdbcType=TIMESTAMP}, #{item.updUsr,jdbcType=BIGINT}, #{item.comA8id,jdbcType=BIGINT}, 
+        #{item.comId,jdbcType=BIGINT}, #{item.depA8id,jdbcType=BIGINT}, #{item.depCode,jdbcType=VARCHAR}, 
+        #{item.depDescription,jdbcType=VARCHAR}, #{item.depName,jdbcType=VARCHAR}, #{item.depPath,jdbcType=VARCHAR}, 
+        #{item.depPid,jdbcType=BIGINT}, #{item.depShortName,jdbcType=VARCHAR}, #{item.synTime,jdbcType=TIMESTAMP}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="dep_id" keyProperty="depId" parameterType="com.zl.spbm.entity.InfoDepartment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_department
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depId != null">
+        dep_id,
+      </if>
+      cre_time,
+      cre_usr,
+      `status`,
+      upd_time,
+      upd_usr,
+      com_a8id,
+      com_id,
+      dep_a8id,
+      dep_code,
+      dep_description,
+      dep_name,
+      dep_path,
+      dep_pid,
+      dep_short_name,
+      syn_time,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depId != null">
+        #{depId,jdbcType=BIGINT},
+      </if>
+      #{creTime,jdbcType=TIMESTAMP},
+      #{creUsr,jdbcType=BIGINT},
+      #{status,jdbcType=INTEGER},
+      #{updTime,jdbcType=TIMESTAMP},
+      #{updUsr,jdbcType=BIGINT},
+      #{comA8id,jdbcType=BIGINT},
+      #{comId,jdbcType=BIGINT},
+      #{depA8id,jdbcType=BIGINT},
+      #{depCode,jdbcType=VARCHAR},
+      #{depDescription,jdbcType=VARCHAR},
+      #{depName,jdbcType=VARCHAR},
+      #{depPath,jdbcType=VARCHAR},
+      #{depPid,jdbcType=BIGINT},
+      #{depShortName,jdbcType=VARCHAR},
+      #{synTime,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="depId != null">
+        dep_id = #{depId,jdbcType=BIGINT},
+      </if>
+      cre_time = #{creTime,jdbcType=TIMESTAMP},
+      cre_usr = #{creUsr,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=INTEGER},
+      upd_time = #{updTime,jdbcType=TIMESTAMP},
+      upd_usr = #{updUsr,jdbcType=BIGINT},
+      com_a8id = #{comA8id,jdbcType=BIGINT},
+      com_id = #{comId,jdbcType=BIGINT},
+      dep_a8id = #{depA8id,jdbcType=BIGINT},
+      dep_code = #{depCode,jdbcType=VARCHAR},
+      dep_description = #{depDescription,jdbcType=VARCHAR},
+      dep_name = #{depName,jdbcType=VARCHAR},
+      dep_path = #{depPath,jdbcType=VARCHAR},
+      dep_pid = #{depPid,jdbcType=BIGINT},
+      dep_short_name = #{depShortName,jdbcType=VARCHAR},
+      syn_time = #{synTime,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="dep_id" keyProperty="depId" parameterType="com.zl.spbm.entity.InfoDepartment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_department
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depId != null">
+        dep_id,
+      </if>
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="comA8id != null">
+        com_a8id,
+      </if>
+      <if test="comId != null">
+        com_id,
+      </if>
+      <if test="depA8id != null">
+        dep_a8id,
+      </if>
+      <if test="depCode != null">
+        dep_code,
+      </if>
+      <if test="depDescription != null">
+        dep_description,
+      </if>
+      <if test="depName != null">
+        dep_name,
+      </if>
+      <if test="depPath != null">
+        dep_path,
+      </if>
+      <if test="depPid != null">
+        dep_pid,
+      </if>
+      <if test="depShortName != null">
+        dep_short_name,
+      </if>
+      <if test="synTime != null">
+        syn_time,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depId != null">
+        #{depId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null">
+        #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="comA8id != null">
+        #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="depA8id != null">
+        #{depA8id,jdbcType=BIGINT},
+      </if>
+      <if test="depCode != null">
+        #{depCode,jdbcType=VARCHAR},
+      </if>
+      <if test="depDescription != null">
+        #{depDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="depPath != null">
+        #{depPath,jdbcType=VARCHAR},
+      </if>
+      <if test="depPid != null">
+        #{depPid,jdbcType=BIGINT},
+      </if>
+      <if test="depShortName != null">
+        #{depShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="depId != null">
+        dep_id = #{depId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="comA8id != null">
+        com_a8id = #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comId != null">
+        com_id = #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="depA8id != null">
+        dep_a8id = #{depA8id,jdbcType=BIGINT},
+      </if>
+      <if test="depCode != null">
+        dep_code = #{depCode,jdbcType=VARCHAR},
+      </if>
+      <if test="depDescription != null">
+        dep_description = #{depDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        dep_name = #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="depPath != null">
+        dep_path = #{depPath,jdbcType=VARCHAR},
+      </if>
+      <if test="depPid != null">
+        dep_pid = #{depPid,jdbcType=BIGINT},
+      </if>
+      <if test="depShortName != null">
+        dep_short_name = #{depShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        syn_time = #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

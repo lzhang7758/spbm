@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.spbm.dao.InfoCompanyMapper">
+  <resultMap id="BaseResultMap" type="com.zl.spbm.entity.InfoCompany">
+    <!--@mbg.generated-->
+    <id column="com_id" jdbcType="BIGINT" property="comId" />
+    <result column="cre_time" jdbcType="TIMESTAMP" property="creTime" />
+    <result column="cre_usr" jdbcType="BIGINT" property="creUsr" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="upd_time" jdbcType="TIMESTAMP" property="updTime" />
+    <result column="upd_usr" jdbcType="BIGINT" property="updUsr" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="com_a8id" jdbcType="BIGINT" property="comA8id" />
+    <result column="com_name" jdbcType="VARCHAR" property="comName" />
+    <result column="syn_time" jdbcType="TIMESTAMP" property="synTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    com_id, cre_time, cre_usr, `status`, upd_time, upd_usr, code, com_a8id, com_name, 
+    syn_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from info_company
+    where com_id = #{comId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from info_company
+    where com_id = #{comId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="com_id" keyProperty="comId" parameterType="com.zl.spbm.entity.InfoCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_company (cre_time, cre_usr, `status`, 
+      upd_time, upd_usr, code, 
+      com_a8id, com_name, syn_time
+      )
+    values (#{creTime,jdbcType=TIMESTAMP}, #{creUsr,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, 
+      #{updTime,jdbcType=TIMESTAMP}, #{updUsr,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, 
+      #{comA8id,jdbcType=BIGINT}, #{comName,jdbcType=VARCHAR}, #{synTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="com_id" keyProperty="comId" parameterType="com.zl.spbm.entity.InfoCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="comA8id != null">
+        com_a8id,
+      </if>
+      <if test="comName != null">
+        com_name,
+      </if>
+      <if test="synTime != null">
+        syn_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="creTime != null">
+        #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="comA8id != null">
+        #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comName != null">
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.spbm.entity.InfoCompany">
+    <!--@mbg.generated-->
+    update info_company
+    <set>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="comA8id != null">
+        com_a8id = #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comName != null">
+        com_name = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        syn_time = #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where com_id = #{comId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.spbm.entity.InfoCompany">
+    <!--@mbg.generated-->
+    update info_company
+    set cre_time = #{creTime,jdbcType=TIMESTAMP},
+      cre_usr = #{creUsr,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=INTEGER},
+      upd_time = #{updTime,jdbcType=TIMESTAMP},
+      upd_usr = #{updUsr,jdbcType=BIGINT},
+      code = #{code,jdbcType=VARCHAR},
+      com_a8id = #{comA8id,jdbcType=BIGINT},
+      com_name = #{comName,jdbcType=VARCHAR},
+      syn_time = #{synTime,jdbcType=TIMESTAMP}
+    where com_id = #{comId,jdbcType=BIGINT}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update info_company
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="cre_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.creTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="cre_usr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.creUsr,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.status,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="upd_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.updTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="upd_usr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.updUsr,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.code,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="com_a8id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.comA8id,jdbcType=BIGINT}
+        </foreach>
+      </trim>
+      <trim prefix="com_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.comName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="syn_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when com_id = #{item.comId,jdbcType=BIGINT} then #{item.synTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where com_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.comId,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="com_id" keyProperty="comId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_company
+    (cre_time, cre_usr, `status`, upd_time, upd_usr, code, com_a8id, com_name, syn_time
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.creTime,jdbcType=TIMESTAMP}, #{item.creUsr,jdbcType=BIGINT}, #{item.status,jdbcType=INTEGER}, 
+        #{item.updTime,jdbcType=TIMESTAMP}, #{item.updUsr,jdbcType=BIGINT}, #{item.code,jdbcType=VARCHAR}, 
+        #{item.comA8id,jdbcType=BIGINT}, #{item.comName,jdbcType=VARCHAR}, #{item.synTime,jdbcType=TIMESTAMP}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="com_id" keyProperty="comId" parameterType="com.zl.spbm.entity.InfoCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comId != null">
+        com_id,
+      </if>
+      cre_time,
+      cre_usr,
+      `status`,
+      upd_time,
+      upd_usr,
+      code,
+      com_a8id,
+      com_name,
+      syn_time,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comId != null">
+        #{comId,jdbcType=BIGINT},
+      </if>
+      #{creTime,jdbcType=TIMESTAMP},
+      #{creUsr,jdbcType=BIGINT},
+      #{status,jdbcType=INTEGER},
+      #{updTime,jdbcType=TIMESTAMP},
+      #{updUsr,jdbcType=BIGINT},
+      #{code,jdbcType=VARCHAR},
+      #{comA8id,jdbcType=BIGINT},
+      #{comName,jdbcType=VARCHAR},
+      #{synTime,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="comId != null">
+        com_id = #{comId,jdbcType=BIGINT},
+      </if>
+      cre_time = #{creTime,jdbcType=TIMESTAMP},
+      cre_usr = #{creUsr,jdbcType=BIGINT},
+      `status` = #{status,jdbcType=INTEGER},
+      upd_time = #{updTime,jdbcType=TIMESTAMP},
+      upd_usr = #{updUsr,jdbcType=BIGINT},
+      code = #{code,jdbcType=VARCHAR},
+      com_a8id = #{comA8id,jdbcType=BIGINT},
+      com_name = #{comName,jdbcType=VARCHAR},
+      syn_time = #{synTime,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="com_id" keyProperty="comId" parameterType="com.zl.spbm.entity.InfoCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into info_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comId != null">
+        com_id,
+      </if>
+      <if test="creTime != null">
+        cre_time,
+      </if>
+      <if test="creUsr != null">
+        cre_usr,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="updTime != null">
+        upd_time,
+      </if>
+      <if test="updUsr != null">
+        upd_usr,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="comA8id != null">
+        com_a8id,
+      </if>
+      <if test="comName != null">
+        com_name,
+      </if>
+      <if test="synTime != null">
+        syn_time,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comId != null">
+        #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null">
+        #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="comA8id != null">
+        #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comName != null">
+        #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="comId != null">
+        com_id = #{comId,jdbcType=BIGINT},
+      </if>
+      <if test="creTime != null">
+        cre_time = #{creTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creUsr != null">
+        cre_usr = #{creUsr,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updTime != null">
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updUsr != null">
+        upd_usr = #{updUsr,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="comA8id != null">
+        com_a8id = #{comA8id,jdbcType=BIGINT},
+      </if>
+      <if test="comName != null">
+        com_name = #{comName,jdbcType=VARCHAR},
+      </if>
+      <if test="synTime != null">
+        syn_time = #{synTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
