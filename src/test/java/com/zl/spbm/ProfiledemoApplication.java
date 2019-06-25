@@ -9,8 +9,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
-@EnableTransactionManagement
-@SpringBootApplication
 public class ProfiledemoApplication {
 	Logger logger = LoggerFactory.getLogger(ProfiledemoApplication.class);
 

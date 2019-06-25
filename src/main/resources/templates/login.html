@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8"/>
     <title>Login</title>
@@ -11,5 +11,8 @@
     <p>密码：<input type="text" name="password" value="123456"/></p>
     <p><input type="submit" value="登录"/></p>
 </form>
+<button shiro:hasPermission="userInfo:view" type="button">用户管理</button>
+<button shiro:hasPermission="userInfo:add" type="button">用户添加</button>
+<button shiro:hasPermission="userInfo:del" type="button">用户删除</button>
 </body>
 </html>

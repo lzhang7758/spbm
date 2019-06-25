@@ -1,9 +1,7 @@
-package com.zl.spbm.config;
+package com.zl.spbm.config.shiro;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Properties;
-
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import com.zl.spbm.shiro.MyShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -14,6 +12,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Properties;
 
 @Configuration
 public class ShiroConfiguration {
@@ -103,5 +105,10 @@ public class ShiroConfiguration {
 		r.setExceptionAttribute("ex");     // Default is "exception"
 		//r.setWarnLogCategory("example.MvcLogger");     // No default
 		return r;
+	}
+
+	@Bean
+	public ShiroDialect shiroDialect() {
+		return new ShiroDialect();
 	}
 }
