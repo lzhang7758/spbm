@@ -20,9 +20,9 @@ public class HomeController {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@RequestMapping({"/","/index"})
-	public String index() {
-		return "index";
-	}
+    public String index() {
+        return "index";
+    }
 	
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request,Map<String,String> map) {

@@ -20,7 +20,7 @@ public class SchedulerTask {
 	Logger logger = LoggerFactory.getLogger(Scheduled.class);
     private int count=0;
 
-    @Scheduled(cron="*/50 * * * * ?")
+    @Scheduled(cron="0 */30 * * * ?")
     private void process(){
     	logger.info("this is scheduler task runing count={} date={}",count++,DateUtil.DateToStr(new Date(), DateUtil.YYMMDDHHMMSS_));
     }

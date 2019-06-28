@@ -6,10 +6,20 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Author: lzhang
- * @Date: 2019/6/13 15:25
+ *
  */
-@Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface HashRequired {
+@Target(ElementType.METHOD)
+public @interface RepeatAccess {
+    /**
+     * 支持spel。
+     * @return
+     */
+    String key();
+
+    /**
+     * 毫秒数内不能重复调用
+     * @return
+     */
+    long rejectTime() default 2000;
 }

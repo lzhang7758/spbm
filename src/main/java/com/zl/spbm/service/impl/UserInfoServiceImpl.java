@@ -1,11 +1,11 @@
 package com.zl.spbm.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import com.zl.spbm.annotaion.RedisLock;
 import com.zl.spbm.dao.UserInfoMapper;
 import com.zl.spbm.entity.UserInfo;
 import com.zl.spbm.service.inter.IUserInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**  
  * Author: qk203   Date: 2018年1月26日  
@@ -19,20 +19,18 @@ public class UserInfoServiceImpl implements IUserInfoService {
 	
 	@Override
 	public int deleteByPrimaryKey(Integer uid) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userInfoMapper.deleteByPrimaryKey(uid);
 	}
 
 	@Override
 	public int insert(UserInfo record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userInfoMapper.insert(record);
 	}
 
 	@Override
+	@RedisLock(key = "#userInfoService:insertSelective:UserInfo")
 	public int insertSelective(UserInfo record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userInfoMapper.insertSelective(record);
 	}
 
 	@Override
@@ -42,14 +40,12 @@ public class UserInfoServiceImpl implements IUserInfoService {
 
 	@Override
 	public int updateByPrimaryKeySelective(UserInfo record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userInfoMapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
 	public int updateByPrimaryKey(UserInfo record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userInfoMapper.updateByPrimaryKey(record);
 	}
 
 	@Override

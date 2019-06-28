@@ -1,4 +1,4 @@
-package com.zl.spbm.config.shiro;
+package com.zl.spbm.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.zl.spbm.shiro.MyShiroRealm;

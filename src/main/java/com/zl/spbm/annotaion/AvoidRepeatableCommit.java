@@ -15,8 +15,14 @@ import java.lang.annotation.Target;
 public @interface AvoidRepeatableCommit {
 
     /**
-     * 指定时间内不可重复提交,单位毫秒
+     *
      * @return
      */
-    long timeout() default 3000L;
+    String key();
+
+    /**
+     * 毫秒数内不能重复调用
+     * @return
+     */
+    long rejectTime() default 2000L;
 }

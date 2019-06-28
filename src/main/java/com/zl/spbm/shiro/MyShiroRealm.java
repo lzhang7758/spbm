@@ -1,7 +1,6 @@
 package com.zl.spbm.shiro;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.google.gson.Gson;
 import com.zl.spbm.entity.SysPermission;
 import com.zl.spbm.entity.SysRole;
@@ -36,7 +35,7 @@ public class MyShiroRealm extends AuthorizingRealm {
     
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-    	logger.debug("权限配置-->MyShiroRealm.doGetAuthorizationInfo() principals={}", JSONObject.toJSONString(principals,SerializerFeature.WRITE_MAP_NULL_FEATURES));
+    	logger.debug("权限配置-->MyShiroRealm.doGetAuthorizationInfo() principals={}", JSONObject.toJSONString(principals));
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         UserInfo userInfo  = (UserInfo)principals.getPrimaryPrincipal();
         logger.debug("AuthorizationInfo doGetAuthorizationInfo=> userInfo="+gson.toJson(userInfo));
