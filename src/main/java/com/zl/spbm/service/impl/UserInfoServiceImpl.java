@@ -28,7 +28,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
 	}
 
 	@Override
-	@RedisLock(key = "#userInfoService:insertSelective:UserInfo")
+	@RedisLock(key = "#record.name + ':' + #record.password")
 	public int insertSelective(UserInfo record) {
 		return userInfoMapper.insertSelective(record);
 	}

@@ -80,7 +80,7 @@ public class RedissonAspect {
         StringBuilder redisKey = new StringBuilder(getKey());
         String params = getParam(pjp, repeatAccess.key());
         if(!"".equals(params)) {
-            redisKey.append(":").append(DigestUtils.md5DigestAsHex(params.getBytes("UTF-8")));
+            redisKey.append(DigestUtils.md5DigestAsHex(params.getBytes("UTF-8")));
         }
         boolean res = RedissLockUtil.tryLock(redisKey.toString(), 0, repeatAccess.rejectTime(), TimeUnit.MILLISECONDS);
         if(res) {
@@ -110,6 +110,6 @@ public class RedissonAspect {
             context.setVariable(params[len], args[len]);
         }
         Expression expression = parser.parseExpression(temp);
-        return expression.getValue(context, String.class);
+        return expression.getValue(context)+"";
     }
 }

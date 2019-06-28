@@ -1,6 +1,7 @@
 package com.zl.spbm.controller;
 
 import com.zl.spbm.annotaion.RepeatAccess;
+import com.zl.spbm.common.ResultMessage;
 import com.zl.spbm.entity.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -13,12 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @Slf4j
-public class RedisLockCotroller {
+public class RepeatAccessCotroller {
 
     @ResponseBody
     @RequestMapping(path = "/redisTest")
-    @RepeatAccess(key = "redisTest")
+    @RepeatAccess(key = "#userInfo")
     public Object redisTest(UserInfo userInfo){
-        return userInfo.toString();
+        return new ResultMessage(0,"ok",userInfo);
     }
 }
