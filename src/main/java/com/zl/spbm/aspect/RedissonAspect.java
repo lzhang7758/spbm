@@ -25,7 +25,9 @@ import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ * 分布式事务锁、重复提交 aop
+ * @Author: lzhang
+ * @Date: 2019/6/17 15:59
  */
 @Aspect
 @Component

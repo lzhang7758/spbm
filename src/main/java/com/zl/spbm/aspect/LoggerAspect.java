@@ -23,7 +23,9 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
- * 日志
+ * controller=>aop日志
+ * @Author: lzhang
+ * @Date: 2019/6/17 15:59
  */
 @Slf4j
 @Aspect

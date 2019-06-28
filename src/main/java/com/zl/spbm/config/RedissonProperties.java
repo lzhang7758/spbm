@@ -2,9 +2,6 @@ package com.zl.spbm.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-/**
- *
- */
 @ConfigurationProperties(prefix = "spring.redisson")
 public class RedissonProperties {
     private int timeout = 3000;

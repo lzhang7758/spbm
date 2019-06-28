@@ -26,9 +26,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.util.Set;
 
-/**
- *
- */
+
 @Configuration
 @EnableCaching
 @ConditionalOnClass({RedisOperations.class, RedisClient.class})
