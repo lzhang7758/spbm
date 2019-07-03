@@ -46,4 +46,9 @@ public class RedisTest {
         System.out.println(userInfo1.toString());
     }
 
+    @Test
+    public void redisOpt(){
+
+    }
+
 }
