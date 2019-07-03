@@ -43,7 +43,8 @@ spring:
     fromMail:
       addr: zhangliang@qk365.com
 
-  #redis配置 单机
+
+  #redis配置-sentinel
   redis:
     pool:
       max-idle: 100 # 连接池中的最大空闲连接
@@ -55,6 +56,8 @@ spring:
       nodes: 127.0.0.1:26379,127.0.0.1:26479,127.0.0.1:26579
   redisson:
     address: 127.0.0.1:6379
+
+
 
 mybatis:
   mapper-locations: classpath*:/mapper/**Mapper.xml
