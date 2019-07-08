@@ -27,6 +27,8 @@ public class InfoCompany {
 
     private LocalDateTime synTime;
 
+
+
     public Long getComId() {
         return comId;
     }
