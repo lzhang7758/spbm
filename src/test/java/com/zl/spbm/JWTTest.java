@@ -57,7 +57,7 @@ public class JWTTest {
 
     @Test
     public void parserJwtBuilderExpration(){
-        String token = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwMDIiLCJzdWIiOiJzdW9Mb25nIiwiaWF0IjoxNTYwNDA2MTA5LCJleHAiOjE1NjA0MDYxNjgsInJvbGVzIjoiYWRtaW4iLCJsb2dvIjoic3VvTG9uZy5qcGcifQ.RR3YrZqVn-686cIweVYsZcawVP-rfEfgINowP2JTXgM";
+        String token = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwMDIiLCJzdWIiOiJzdW9Mb25nIiwiaWF0IjoxNTYyNzI2NDkxLCJleHAiOjE1NjI3MjY1NTEsInJvbGVzIjoiYWRtaW4iLCJsb2dvIjoic3VvTG9uZy5qcGcifQ.t_mNN4_4BHA8r_ZbtI68k474ad-lCmiBJO1JcwRaogM";
         Claims claims = Jwts.parser().setSigningKey("demaxiya").parseClaimsJws(token).getBody();
         System.out.println("id = " + claims.getId());
         System.out.println("subject = " + claims.getSubject());
