@@ -34,7 +34,7 @@ spring:
   mail:
     host: smtp.exmail.qq.com #邮箱地址
     username: zhangliang@qk365.com #登录用户
-    password: Lzhang123
+    password: Lzhang123!
     default-encoding: UTF-8
     fromMail:
       addr: zhangliang@qk365.com
@@ -52,8 +52,6 @@ spring:
       nodes: 127.0.0.1:26379,127.0.0.1:26479,127.0.0.1:26579
   redisson:
     address: 127.0.0.1:6379
-
-
 
 mybatis:
   mapper-locations: classpath*:/mapper/**Mapper.xml
