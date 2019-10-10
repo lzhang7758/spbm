@@ -51,7 +51,8 @@ spring:
       master: mymaster
       nodes: 127.0.0.1:26379,127.0.0.1:26479,127.0.0.1:26579
   redisson:
-    address: 127.0.0.1:6379
+    master-name: mymaster
+    sentinelAddresses: 127.0.0.1:26379,127.0.0.1:26479,127.0.0.1:26579
 
 mybatis:
   mapper-locations: classpath*:/mapper/**Mapper.xml

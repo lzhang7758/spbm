@@ -31,7 +31,7 @@ public class QkHealthyController {
             ip = addr.getHostAddress();
             //获得机器名称
             address = addr.getHostName();
-            LOGGER.info("QkHealthyController health check. address:{},ip:{},hostName:{}",addr,ip,address);
+            LOGGER.info("QkHealthyController health check.ip:{},hostName:{}",ip,address);
         }catch(Exception e){
             log.error("checkOk error:{}", e);
         }
