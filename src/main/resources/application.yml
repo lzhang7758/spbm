@@ -7,7 +7,7 @@ spring:
 
   datasource:
     name: join
-    url: jdbc:mysql://127.0.0.1:3306/join
+    url: jdbc:mysql://127.0.0.1:3306/test
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
@@ -33,11 +33,11 @@ spring:
   #邮箱配置
   mail:
     host: smtp.exmail.qq.com #邮箱地址
-    username: zhangliang@qk365.com #登录用户
-    password: Lzhang123!
+    username: zl_go@foxmail.com
+    password: lzhang112233
     default-encoding: UTF-8
     fromMail:
-      addr: zhangliang@qk365.com
+      addr: lzhang123
 
 
   #redis配置-sentinel
